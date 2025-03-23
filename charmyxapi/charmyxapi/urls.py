@@ -24,6 +24,7 @@ urlpatterns = [
     path('salao/', include('salao.urls')),
     path('agendamento/', include('agendamento.urls')),
     path('api/', include('proprietario.urls')),
+    path('servico/', include('servico.urls')),
     path('api/', include('cliente.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),

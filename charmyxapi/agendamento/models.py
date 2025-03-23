@@ -1,4 +1,5 @@
 from django.db import models
+from cliente.models import Cliente
 
 # Create your models here.
 
@@ -19,4 +20,6 @@ class Agendamento(models.Model):
         help_text="Estado atual do serviço"
     )
     # servico_id = models.ForeignKey(Servico, on_delete=models.CASCADE)
-    # cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+    cliente_id = models.ForeignKey(Cliente, on_delete=models.CASCADE)
+
+  
