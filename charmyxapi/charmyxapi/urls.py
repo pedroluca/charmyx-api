@@ -21,10 +21,13 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('salao/', include('salao.urls')),
     path('agendamento/', include('agendamento.urls')),
-    path('api/', include('proprietario.urls')),
+    path('cliente/', include('cliente.urls')),
+    path('produto/', include('produto.urls')),
+    path('proprietario/', include('proprietario.urls')),
+    path('salao/', include('salao.urls')),
     path('servico/', include('servico.urls')),
+    path('api/', include('proprietario.urls')),
     path('api/', include('cliente.urls')),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
