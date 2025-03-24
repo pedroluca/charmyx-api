@@ -22,3 +22,16 @@ class ServicoAPI(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def PUT(self, request, servico_id):
+        servico = Servico.objects.get(id=servico_id)
+        serializer = ServicoSerializers(servico, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request, servico_id):
+        servico = Servico.objects.get(id=servico_id)
+        servico.delete()
+        return Response({"message": "Serviço deletado com sucesso!"}, status=status.HTTP_204_NO_CONTENT)
